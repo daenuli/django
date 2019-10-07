@@ -1,0 +1,40 @@
+{% extends 'admin/layouts/app.html' %}
+
+{% block content %}
+<div class="box">
+    <div class="box-header with-border">
+        <a href="{% url 'users:create' %}" class="btn btn-primary"><i class="fa fa-fw fa-plus"></i> Create</a>
+    </div>
+    <div class="box-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            {% if users %}
+            <tbody>
+                {% for row in users %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.email }}</td>
+                        <td>
+                            <a href="{% url 'users:edit' row.id %}" class="btn btn-primary btn-xs">Edit</a>
+                            <a href="{% url 'users:delete' row.id %}" class="btn btn-danger btn-xs">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4" align="center">Data Not Available</td>
+                </tr>
+            {% endif %}
+            </tbody>
+      </table>
+    </div>
+</div>
+{% endblock %}

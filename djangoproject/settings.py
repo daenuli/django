@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'category.apps.CategoryConfig',
     'article.apps.ArticleConfig',
+    'users.apps.UsersConfig',
+    'depanhome.apps.DepanhomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
