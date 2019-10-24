@@ -8,7 +8,9 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     user_id = models.IntegerField(null=True)
+    image = models.ImageField(upload_to='image')
     pub_date = models.DateTimeField('date published')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = "article"
